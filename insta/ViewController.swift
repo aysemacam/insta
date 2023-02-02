@@ -35,7 +35,6 @@ class ViewController: UIViewController {
             }
         }
     }
-//    comment
     @IBAction func signUpClicked(_ sender: Any) {
         
         if emailText.text != "" && passwordText.text != "" {
