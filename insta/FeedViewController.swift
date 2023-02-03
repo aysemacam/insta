@@ -14,6 +14,7 @@ import FirebaseFirestore
 import FirebaseInstallations
 import FirebaseCoreInternal
 import FirebaseAuthInterop
+import SDWebImage
 
 
 class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -41,6 +42,11 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
                 print(error?.localizedDescription)
             } else {
                 if snapshot?.isEmpty != true && snapshot != nil {
+                    self.userImageArray.removeAll(keepingCapacity: false)
+                    self.userEmailArray.removeAll(keepingCapacity: false)
+                    self.userCommentArray.removeAll(keepingCapacity: false)
+                    self.likeArray.removeAll(keepingCapacity: false)
+                    
                     for document in snapshot!.documents {
                         let documentID = document.documentID
                        
@@ -73,7 +79,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.userEmail.text = userEmailArray[indexPath.row]
         cell.likeLabel.text = String(likeArray[indexPath.row])
         cell.commentLabel.text = userCommentArray[indexPath.row]
-        cell.userImageView.image = UIImage(named: "si")
+        cell.userImageView.sd_setImage(with: URL(string: self.userImageArray[indexPath.row]))
         return cell
         
         
