@@ -24,6 +24,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     var userCommentArray = [String]()
     var likeArray = [Int]()
     var userImageArray = [String]()
+    var documentIDArray = [String]()
     
     
     override func viewDidLoad() {
@@ -37,7 +38,9 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let firestoreDatabase = Firestore.firestore()
        
-        firestoreDatabase.collection("Posts").addSnapshotListener { (snapshot, error) in
+        firestoreDatabase.collection("Posts").order(by: "date", descending: true)
+            
+            .addSnapshotListener { (snapshot, error) in
             if error != nil {
                 print(error?.localizedDescription)
             } else {
@@ -46,9 +49,11 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
                     self.userEmailArray.removeAll(keepingCapacity: false)
                     self.userCommentArray.removeAll(keepingCapacity: false)
                     self.likeArray.removeAll(keepingCapacity: false)
+                    self.documentIDArray.removeAll(keepingCapacity: false)
                     
                     for document in snapshot!.documents {
                         let documentID = document.documentID
+                        self.documentIDArray.append(documentID)
                        
                         
                         if let postedBy = document.get("postedBy") as? String {
@@ -80,6 +85,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.likeLabel.text = String(likeArray[indexPath.row])
         cell.commentLabel.text = userCommentArray[indexPath.row]
         cell.userImageView.sd_setImage(with: URL(string: self.userImageArray[indexPath.row]))
+        cell.documentIdLabel.text = documentIDArray[indexPath.row]
         return cell
         
         

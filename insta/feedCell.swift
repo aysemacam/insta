@@ -6,6 +6,19 @@
 //
 
 import UIKit
+import FirebaseCore
+import FirebaseAuth
+import FirebaseStorage
+import FirebaseFirestore
+import FirebaseAnalytics
+import FirebaseInstallations
+import FirebaseAuthInterop
+import FirebaseCoreExtension
+import FirebaseStorageInternal
+import FirebaseCoreInternal
+import FirebaseCoreDiagnostics
+import FirebaseAppCheckInterop
+
 
 class feedCell: UITableViewCell {
 
@@ -17,6 +30,7 @@ class feedCell: UITableViewCell {
     
     @IBOutlet weak var likeLabel: UILabel!
     
+    @IBOutlet weak var documentIdLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -30,5 +44,16 @@ class feedCell: UITableViewCell {
 
     
     @IBAction func likeButtonClicked(_ sender: Any) {
+        
+        
+        let firestoreDatabase = Firestore.firestore()
+        if let likeCount = Int(likeLabel.text!) {
+            let likeStore = ["likes" : likeCount + 1] as [String : Any]
+            
+            firestoreDatabase.collection("Posts").document(documentIdLabel.text!).setData(likeStore, merge: true)
+        }
+        
+     
+        
     }
 }
