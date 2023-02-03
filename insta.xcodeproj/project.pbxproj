@@ -17,6 +17,7 @@
 		56B9B10729814FB1000B3D5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56B9B10629814FB1000B3D5F /* Assets.xcassets */; };
 		56B9B10A29814FB1000B3D5F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56B9B10829814FB1000B3D5F /* LaunchScreen.storyboard */; };
 		56B9B1122981514B000B3D5F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 56B9B1112981514B000B3D5F /* GoogleService-Info.plist */; };
+		56D3740F298D317B0024A438 /* feedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D3740E298D317B0024A438 /* feedCell.swift */; };
 		E0405F9518A9D560B7E5D8BE /* Pods_insta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E9664CF3A39C9C2C9036CD9 /* Pods_insta.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +37,7 @@
 		56B9B10929814FB1000B3D5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		56B9B10B29814FB1000B3D5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		56B9B1112981514B000B3D5F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		56D3740E298D317B0024A438 /* feedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = feedCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				568467BB2981AC4F00A10498 /* FeedViewController.swift */,
 				568467BD2981AC7A00A10498 /* UploadViewController.swift */,
 				568467BF2981ACAA00A10498 /* SettingsViewController.swift */,
+				56D3740E298D317B0024A438 /* feedCell.swift */,
 				56B9B10329814FAD000B3D5F /* Main.storyboard */,
 				56B9B1112981514B000B3D5F /* GoogleService-Info.plist */,
 				56B9B10629814FB1000B3D5F /* Assets.xcassets */,
@@ -220,6 +223,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				56B9B10229814FAD000B3D5F /* ViewController.swift in Sources */,
+				56D3740F298D317B0024A438 /* feedCell.swift in Sources */,
 				568467BE2981AC7A00A10498 /* UploadViewController.swift in Sources */,
 				56B9B0FE29814FAD000B3D5F /* AppDelegate.swift in Sources */,
 				568467BC2981AC4F00A10498 /* FeedViewController.swift in Sources */,
